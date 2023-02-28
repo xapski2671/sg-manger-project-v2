@@ -2,6 +2,9 @@
   "goerli": {
     "CrowdFunder": {
       "address": "0x7931A860de180072fD6c24E43146e293292a9012"
+    },
+    "Contract": {
+      "address": "0x358e07967096934531060491B9794dD9de97b788"
     }
   }
 }

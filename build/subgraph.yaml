@@ -35,3 +35,35 @@ dataSources:
         - event: UserAdded(indexed address,string,string,string,string)
           handler: handleUserAdded
       file: CrowdFunder\CrowdFunder.wasm
+  - kind: ethereum
+    name: Contract
+    network: goerli
+    source:
+      address: "0x358e07967096934531060491B9794dD9de97b788"
+      abi: Contract
+      startBlock: 8573616
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.6
+      language: wasm/assemblyscript
+      entities:
+        - ContractCampaignAdded
+        - ContractCampaignFunded
+        - ContractCampaignRemoved
+        - ContractCampaignShrunk
+        - ContractUserAdded
+      abis:
+        - name: Contract
+          file: Contract\abis\Contract.json
+      eventHandlers:
+        - event: ContractCampaignAdded(indexed address,indexed address)
+          handler: handleContractCampaignAdded
+        - event: ContractCampaignFunded(indexed address,indexed address)
+          handler: handleContractCampaignFunded
+        - event: ContractCampaignRemoved(indexed address)
+          handler: handleContractCampaignRemoved
+        - event: ContractCampaignShrunk(indexed address,indexed address)
+          handler: handleContractCampaignShrunk
+        - event: ContractUserAdded(indexed address,string,string,string,string)
+          handler: handleContractUserAdded
+      file: Contract\Contract.wasm

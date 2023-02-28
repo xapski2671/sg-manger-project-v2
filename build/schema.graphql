@@ -45,3 +45,45 @@ type CampaignRemoved @entity {
   campaignAddress: Bytes!
   createdAt: BigInt!
 }
+
+
+type ContractCampaignAdded @entity {
+  id: ID!
+  campaignAddress: Bytes!
+  creator: Bytes!
+  funders: [Bytes!]
+  funderCount: BigInt!
+  createdAt: BigInt!
+}
+
+type ContractCampaignFunded @entity {
+  id: ID!
+  funder: Bytes!
+  campaignAddress: Bytes!
+  createdAt: BigInt!
+}
+
+type ContractCampaignRemoved @entity {
+  id: ID!
+  campaignAddress: Bytes!
+  createdAt: BigInt!
+}
+
+type ContractCampaignShrunk @entity {
+  id: ID!
+  withdrawer: Bytes!
+  campaignAddress: Bytes!
+  createdAt: BigInt!
+}
+
+type ContractUserAdded @entity {
+  id: ID!
+  address: Bytes!
+  username: String!
+  twitter: String
+  email: String
+  bio: String
+  createdCount: BigInt
+  backedCount: BigInt
+  createdAt: BigInt!
+}
