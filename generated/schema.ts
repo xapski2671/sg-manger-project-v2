@@ -897,3 +897,510 @@ export class ContractUserAdded extends Entity {
     this.set("createdAt", Value.fromBigInt(value));
   }
 }
+
+export class v3CampaignAdded extends Entity {
+  constructor(id: string) {
+    super();
+    this.set("id", Value.fromString(id));
+  }
+
+  save(): void {
+    let id = this.get("id");
+    assert(id != null, "Cannot save v3CampaignAdded entity without an ID");
+    if (id) {
+      assert(
+        id.kind == ValueKind.STRING,
+        `Entities of type v3CampaignAdded must have an ID of type String but the id '${id.displayData()}' is of type ${id.displayKind()}`
+      );
+      store.set("v3CampaignAdded", id.toString(), this);
+    }
+  }
+
+  static load(id: string): v3CampaignAdded | null {
+    return changetype<v3CampaignAdded | null>(store.get("v3CampaignAdded", id));
+  }
+
+  get id(): string {
+    let value = this.get("id");
+    return value!.toString();
+  }
+
+  set id(value: string) {
+    this.set("id", Value.fromString(value));
+  }
+
+  get campaignAddress(): Bytes {
+    let value = this.get("campaignAddress");
+    return value!.toBytes();
+  }
+
+  set campaignAddress(value: Bytes) {
+    this.set("campaignAddress", Value.fromBytes(value));
+  }
+
+  get creator(): Bytes {
+    let value = this.get("creator");
+    return value!.toBytes();
+  }
+
+  set creator(value: Bytes) {
+    this.set("creator", Value.fromBytes(value));
+  }
+
+  get funders(): Array<Bytes> | null {
+    let value = this.get("funders");
+    if (!value || value.kind == ValueKind.NULL) {
+      return null;
+    } else {
+      return value.toBytesArray();
+    }
+  }
+
+  set funders(value: Array<Bytes> | null) {
+    if (!value) {
+      this.unset("funders");
+    } else {
+      this.set("funders", Value.fromBytesArray(<Array<Bytes>>value));
+    }
+  }
+
+  get funderCount(): BigInt {
+    let value = this.get("funderCount");
+    return value!.toBigInt();
+  }
+
+  set funderCount(value: BigInt) {
+    this.set("funderCount", Value.fromBigInt(value));
+  }
+
+  get createdAt(): BigInt {
+    let value = this.get("createdAt");
+    return value!.toBigInt();
+  }
+
+  set createdAt(value: BigInt) {
+    this.set("createdAt", Value.fromBigInt(value));
+  }
+}
+
+export class v3CampaignFunded extends Entity {
+  constructor(id: string) {
+    super();
+    this.set("id", Value.fromString(id));
+  }
+
+  save(): void {
+    let id = this.get("id");
+    assert(id != null, "Cannot save v3CampaignFunded entity without an ID");
+    if (id) {
+      assert(
+        id.kind == ValueKind.STRING,
+        `Entities of type v3CampaignFunded must have an ID of type String but the id '${id.displayData()}' is of type ${id.displayKind()}`
+      );
+      store.set("v3CampaignFunded", id.toString(), this);
+    }
+  }
+
+  static load(id: string): v3CampaignFunded | null {
+    return changetype<v3CampaignFunded | null>(
+      store.get("v3CampaignFunded", id)
+    );
+  }
+
+  get id(): string {
+    let value = this.get("id");
+    return value!.toString();
+  }
+
+  set id(value: string) {
+    this.set("id", Value.fromString(value));
+  }
+
+  get funder(): Bytes {
+    let value = this.get("funder");
+    return value!.toBytes();
+  }
+
+  set funder(value: Bytes) {
+    this.set("funder", Value.fromBytes(value));
+  }
+
+  get campaignAddress(): Bytes {
+    let value = this.get("campaignAddress");
+    return value!.toBytes();
+  }
+
+  set campaignAddress(value: Bytes) {
+    this.set("campaignAddress", Value.fromBytes(value));
+  }
+
+  get createdAt(): BigInt {
+    let value = this.get("createdAt");
+    return value!.toBigInt();
+  }
+
+  set createdAt(value: BigInt) {
+    this.set("createdAt", Value.fromBigInt(value));
+  }
+}
+
+export class v3CampaignRemoved extends Entity {
+  constructor(id: string) {
+    super();
+    this.set("id", Value.fromString(id));
+  }
+
+  save(): void {
+    let id = this.get("id");
+    assert(id != null, "Cannot save v3CampaignRemoved entity without an ID");
+    if (id) {
+      assert(
+        id.kind == ValueKind.STRING,
+        `Entities of type v3CampaignRemoved must have an ID of type String but the id '${id.displayData()}' is of type ${id.displayKind()}`
+      );
+      store.set("v3CampaignRemoved", id.toString(), this);
+    }
+  }
+
+  static load(id: string): v3CampaignRemoved | null {
+    return changetype<v3CampaignRemoved | null>(
+      store.get("v3CampaignRemoved", id)
+    );
+  }
+
+  get id(): string {
+    let value = this.get("id");
+    return value!.toString();
+  }
+
+  set id(value: string) {
+    this.set("id", Value.fromString(value));
+  }
+
+  get campaignAddress(): Bytes {
+    let value = this.get("campaignAddress");
+    return value!.toBytes();
+  }
+
+  set campaignAddress(value: Bytes) {
+    this.set("campaignAddress", Value.fromBytes(value));
+  }
+
+  get createdAt(): BigInt {
+    let value = this.get("createdAt");
+    return value!.toBigInt();
+  }
+
+  set createdAt(value: BigInt) {
+    this.set("createdAt", Value.fromBigInt(value));
+  }
+}
+
+export class v3CampaignShrunk extends Entity {
+  constructor(id: string) {
+    super();
+    this.set("id", Value.fromString(id));
+  }
+
+  save(): void {
+    let id = this.get("id");
+    assert(id != null, "Cannot save v3CampaignShrunk entity without an ID");
+    if (id) {
+      assert(
+        id.kind == ValueKind.STRING,
+        `Entities of type v3CampaignShrunk must have an ID of type String but the id '${id.displayData()}' is of type ${id.displayKind()}`
+      );
+      store.set("v3CampaignShrunk", id.toString(), this);
+    }
+  }
+
+  static load(id: string): v3CampaignShrunk | null {
+    return changetype<v3CampaignShrunk | null>(
+      store.get("v3CampaignShrunk", id)
+    );
+  }
+
+  get id(): string {
+    let value = this.get("id");
+    return value!.toString();
+  }
+
+  set id(value: string) {
+    this.set("id", Value.fromString(value));
+  }
+
+  get withdrawer(): Bytes {
+    let value = this.get("withdrawer");
+    return value!.toBytes();
+  }
+
+  set withdrawer(value: Bytes) {
+    this.set("withdrawer", Value.fromBytes(value));
+  }
+
+  get campaignAddress(): Bytes {
+    let value = this.get("campaignAddress");
+    return value!.toBytes();
+  }
+
+  set campaignAddress(value: Bytes) {
+    this.set("campaignAddress", Value.fromBytes(value));
+  }
+
+  get createdAt(): BigInt {
+    let value = this.get("createdAt");
+    return value!.toBigInt();
+  }
+
+  set createdAt(value: BigInt) {
+    this.set("createdAt", Value.fromBigInt(value));
+  }
+}
+
+export class v3UserAdded extends Entity {
+  constructor(id: string) {
+    super();
+    this.set("id", Value.fromString(id));
+  }
+
+  save(): void {
+    let id = this.get("id");
+    assert(id != null, "Cannot save v3UserAdded entity without an ID");
+    if (id) {
+      assert(
+        id.kind == ValueKind.STRING,
+        `Entities of type v3UserAdded must have an ID of type String but the id '${id.displayData()}' is of type ${id.displayKind()}`
+      );
+      store.set("v3UserAdded", id.toString(), this);
+    }
+  }
+
+  static load(id: string): v3UserAdded | null {
+    return changetype<v3UserAdded | null>(store.get("v3UserAdded", id));
+  }
+
+  get id(): string {
+    let value = this.get("id");
+    return value!.toString();
+  }
+
+  set id(value: string) {
+    this.set("id", Value.fromString(value));
+  }
+
+  get address(): Bytes {
+    let value = this.get("address");
+    return value!.toBytes();
+  }
+
+  set address(value: Bytes) {
+    this.set("address", Value.fromBytes(value));
+  }
+
+  get username(): string {
+    let value = this.get("username");
+    return value!.toString();
+  }
+
+  set username(value: string) {
+    this.set("username", Value.fromString(value));
+  }
+
+  get twitter(): string | null {
+    let value = this.get("twitter");
+    if (!value || value.kind == ValueKind.NULL) {
+      return null;
+    } else {
+      return value.toString();
+    }
+  }
+
+  set twitter(value: string | null) {
+    if (!value) {
+      this.unset("twitter");
+    } else {
+      this.set("twitter", Value.fromString(<string>value));
+    }
+  }
+
+  get email(): string | null {
+    let value = this.get("email");
+    if (!value || value.kind == ValueKind.NULL) {
+      return null;
+    } else {
+      return value.toString();
+    }
+  }
+
+  set email(value: string | null) {
+    if (!value) {
+      this.unset("email");
+    } else {
+      this.set("email", Value.fromString(<string>value));
+    }
+  }
+
+  get location(): string {
+    let value = this.get("location");
+    return value!.toString();
+  }
+
+  set location(value: string) {
+    this.set("location", Value.fromString(value));
+  }
+
+  get homeAddr(): string {
+    let value = this.get("homeAddr");
+    return value!.toString();
+  }
+
+  set homeAddr(value: string) {
+    this.set("homeAddr", Value.fromString(value));
+  }
+
+  get bio(): string | null {
+    let value = this.get("bio");
+    if (!value || value.kind == ValueKind.NULL) {
+      return null;
+    } else {
+      return value.toString();
+    }
+  }
+
+  set bio(value: string | null) {
+    if (!value) {
+      this.unset("bio");
+    } else {
+      this.set("bio", Value.fromString(<string>value));
+    }
+  }
+
+  get created(): Array<Bytes> | null {
+    let value = this.get("created");
+    if (!value || value.kind == ValueKind.NULL) {
+      return null;
+    } else {
+      return value.toBytesArray();
+    }
+  }
+
+  set created(value: Array<Bytes> | null) {
+    if (!value) {
+      this.unset("created");
+    } else {
+      this.set("created", Value.fromBytesArray(<Array<Bytes>>value));
+    }
+  }
+
+  get backed(): Array<Bytes> | null {
+    let value = this.get("backed");
+    if (!value || value.kind == ValueKind.NULL) {
+      return null;
+    } else {
+      return value.toBytesArray();
+    }
+  }
+
+  set backed(value: Array<Bytes> | null) {
+    if (!value) {
+      this.unset("backed");
+    } else {
+      this.set("backed", Value.fromBytesArray(<Array<Bytes>>value));
+    }
+  }
+
+  get createdCount(): BigInt | null {
+    let value = this.get("createdCount");
+    if (!value || value.kind == ValueKind.NULL) {
+      return null;
+    } else {
+      return value.toBigInt();
+    }
+  }
+
+  set createdCount(value: BigInt | null) {
+    if (!value) {
+      this.unset("createdCount");
+    } else {
+      this.set("createdCount", Value.fromBigInt(<BigInt>value));
+    }
+  }
+
+  get backedCount(): BigInt | null {
+    let value = this.get("backedCount");
+    if (!value || value.kind == ValueKind.NULL) {
+      return null;
+    } else {
+      return value.toBigInt();
+    }
+  }
+
+  set backedCount(value: BigInt | null) {
+    if (!value) {
+      this.unset("backedCount");
+    } else {
+      this.set("backedCount", Value.fromBigInt(<BigInt>value));
+    }
+  }
+
+  get createdAt(): BigInt {
+    let value = this.get("createdAt");
+    return value!.toBigInt();
+  }
+
+  set createdAt(value: BigInt) {
+    this.set("createdAt", Value.fromBigInt(value));
+  }
+}
+
+export class UserHomeAddrAdded extends Entity {
+  constructor(id: string) {
+    super();
+    this.set("id", Value.fromString(id));
+  }
+
+  save(): void {
+    let id = this.get("id");
+    assert(id != null, "Cannot save UserHomeAddrAdded entity without an ID");
+    if (id) {
+      assert(
+        id.kind == ValueKind.STRING,
+        `Entities of type UserHomeAddrAdded must have an ID of type String but the id '${id.displayData()}' is of type ${id.displayKind()}`
+      );
+      store.set("UserHomeAddrAdded", id.toString(), this);
+    }
+  }
+
+  static load(id: string): UserHomeAddrAdded | null {
+    return changetype<UserHomeAddrAdded | null>(
+      store.get("UserHomeAddrAdded", id)
+    );
+  }
+
+  get id(): string {
+    let value = this.get("id");
+    return value!.toString();
+  }
+
+  set id(value: string) {
+    this.set("id", Value.fromString(value));
+  }
+
+  get userAddress(): Bytes {
+    let value = this.get("userAddress");
+    return value!.toBytes();
+  }
+
+  set userAddress(value: Bytes) {
+    this.set("userAddress", Value.fromBytes(value));
+  }
+
+  get homeAddr(): string {
+    let value = this.get("homeAddr");
+    return value!.toString();
+  }
+
+  set homeAddr(value: string) {
+    this.set("homeAddr", Value.fromString(value));
+  }
+}

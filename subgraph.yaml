@@ -67,3 +67,38 @@ dataSources:
         - event: ContractUserAdded(indexed address,string,string,string,string)
           handler: handleContractUserAdded
       file: ./src/contract.ts
+  - kind: ethereum
+    name: v3
+    network: goerli
+    source:
+      address: "0x50397a5cAf1C63979e2f50f9D6450fA7162240C4"
+      abi: v3
+      startBlock: 8582587
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.6
+      language: wasm/assemblyscript
+      entities:
+        - v3CampaignAdded
+        - v3CampaignFunded
+        - v3CampaignRemoved
+        - v3CampaignShrunk
+        - v3UserAdded
+        - UserHomeAddrAdded
+      abis:
+        - name: v3
+          file: ./abis/v3.json
+      eventHandlers:
+        - event: v3CampaignAdded(indexed address,indexed address)
+          handler: handlev3CampaignAdded
+        - event: v3CampaignFunded(indexed address,indexed address)
+          handler: handlev3CampaignFunded
+        - event: v3CampaignRemoved(indexed address)
+          handler: handlev3CampaignRemoved
+        - event: v3CampaignShrunk(indexed address,indexed address)
+          handler: handlev3CampaignShrunk
+        - event: v3UserAdded(indexed address,string,string,string,string,string)
+          handler: handlev3UserAdded
+        - event: UserHomeAddrAdded(address,string)
+          handler: handleUserHomeAddrAdded
+      file: ./src/v-3.ts

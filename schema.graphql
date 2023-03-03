@@ -46,7 +46,7 @@ type CampaignRemoved @entity {
   createdAt: BigInt!
 }
 
-
+# v2
 type ContractCampaignAdded @entity {
   id: ID!
   campaignAddress: Bytes!
@@ -86,4 +86,56 @@ type ContractUserAdded @entity {
   createdCount: BigInt
   backedCount: BigInt
   createdAt: BigInt!
+}
+
+# v3
+type v3CampaignAdded @entity {
+  id: ID!
+  campaignAddress: Bytes!
+  creator: Bytes!
+  funders: [Bytes!]
+  funderCount: BigInt!
+  createdAt: BigInt!
+}
+
+type v3CampaignFunded @entity {
+  id: ID!
+  funder: Bytes!
+  campaignAddress: Bytes!
+  createdAt: BigInt!
+}
+
+type v3CampaignRemoved @entity {
+  id: ID!
+  campaignAddress: Bytes!
+  createdAt: BigInt!
+}
+
+type v3CampaignShrunk @entity {
+  id: ID!
+  withdrawer: Bytes!
+  campaignAddress: Bytes!
+  createdAt: BigInt!
+}
+
+type v3UserAdded @entity {
+  id: ID!
+  address: Bytes!
+  username: String!
+  twitter: String
+  email: String
+  location: String!
+  homeAddr: String!
+  bio: String
+  created: [Bytes!]
+  backed: [Bytes!]
+  createdCount: BigInt
+  backedCount: BigInt
+  createdAt: BigInt!
+}
+
+type UserHomeAddrAdded @entity {
+  id: ID!
+  userAddress: Bytes! # address
+  homeAddr: String! # string
 }
